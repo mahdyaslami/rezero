@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "da92cb0709dfc901d10fbf83ec51f6d9",
+    "content-hash": "f119dfd17731c12719f9848ab510f6fa",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -2035,6 +2035,53 @@
                 }
             ],
             "time": "2022-04-17T13:12:02+00:00"
+        },
+        {
+            "name": "mahdiaslami/laravel-fa-lang",
+            "version": "v0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mahdyaslami/laravel-fa-lang.git",
+                "reference": "e02a4a73d262712a058e1ae95b7b049e4c0444b5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mahdyaslami/laravel-fa-lang/zipball/e02a4a73d262712a058e1ae95b7b049e4c0444b5",
+                "reference": "e02a4a73d262712a058e1ae95b7b049e4c0444b5",
+                "shasum": ""
+            },
+            "require-dev": {
+                "laravel/framework": "^9.21.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Mahdiaslami\\LaravelFaLang\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Mahdiaslami\\LaravelFaLang\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mahdi Aslami Khavari",
+                    "email": "mahdyaslami@gmail.com"
+                }
+            ],
+            "description": "Persian translations for Laravel lang directory.",
+            "support": {
+                "issues": "https://github.com/mahdyaslami/laravel-fa-lang/issues",
+                "source": "https://github.com/mahdyaslami/laravel-fa-lang/tree/v0.2.0"
+            },
+            "time": "2022-07-22T13:33:05+00:00"
         },
         {
             "name": "mobiledetect/mobiledetectlib",
