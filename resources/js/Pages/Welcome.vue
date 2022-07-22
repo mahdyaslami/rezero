@@ -25,7 +25,7 @@ defineProps({
                     ورود
                 </Link>
 
-                <Link v-if="canRegister" :href="route('register')" class="mr-4 text-sm text-gray-700 underline">
+                <Link v-if="canRegister" :href="route('register')" class="ltr:ml-4 rtl:mr-4 text-sm text-gray-700 underline">
                     ثبت نام
                 </Link>
             </template>
