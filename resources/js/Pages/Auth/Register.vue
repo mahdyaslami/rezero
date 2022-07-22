@@ -35,7 +35,7 @@ const submit = () => {
 
         <form @submit.prevent="submit">
             <div>
-                <JetLabel for="name" value="Name" />
+                <JetLabel for="name" value="نام" />
                 <JetInput
                     id="name"
                     v-model="form.name"
@@ -48,7 +48,7 @@ const submit = () => {
             </div>
 
             <div class="mt-4">
-                <JetLabel for="email" value="Email" />
+                <JetLabel for="email" value="ایمیل" />
                 <JetInput
                     id="email"
                     v-model="form.email"
@@ -59,7 +59,7 @@ const submit = () => {
             </div>
 
             <div class="mt-4">
-                <JetLabel for="password" value="Password" />
+                <JetLabel for="password" value="کلمه عبور" />
                 <JetInput
                     id="password"
                     v-model="form.password"
@@ -71,7 +71,7 @@ const submit = () => {
             </div>
 
             <div class="mt-4">
-                <JetLabel for="password_confirmation" value="Confirm Password" />
+                <JetLabel for="password_confirmation" value="تکرار کلمه عبور" />
                 <JetInput
                     id="password_confirmation"
                     v-model="form.password_confirmation"
@@ -96,11 +96,11 @@ const submit = () => {
 
             <div class="flex items-center justify-end mt-4">
                 <Link :href="route('login')" class="underline text-sm text-gray-600 hover:text-gray-900">
-                    Already registered?
+                    قبلا ثبت نام کرده اید؟
                 </Link>
 
-                <JetButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Register
+                <JetButton class="rtl:mr-4 ltr:ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                    ثبت نام
                 </JetButton>
             </div>
         </form>
