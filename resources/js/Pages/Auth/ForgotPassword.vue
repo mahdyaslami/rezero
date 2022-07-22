@@ -29,7 +29,9 @@ const submit = () => {
         </template>
 
         <div class="mb-4 text-sm text-gray-600">
-            Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.
+            رمز عبور خود را فراموش کرده اید؟ مشکلی نیست فقط آدرس ایمیل خود را به ما اطلاع دهید
+             و ما یک پیوند بازنشانی رمز عبور را برای شما ایمیل می کنیم
+              که به شما امکان می دهد رمز جدیدی را انتخاب کنید.
         </div>
 
         <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
@@ -40,7 +42,7 @@ const submit = () => {
 
         <form @submit.prevent="submit">
             <div>
-                <JetLabel for="email" value="Email" />
+                <JetLabel for="email" value="ایمیل" />
                 <JetInput
                     id="email"
                     v-model="form.email"
@@ -53,7 +55,7 @@ const submit = () => {
 
             <div class="flex items-center justify-end mt-4">
                 <JetButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Email Password Reset Link
+                    پیوند بازنشانی رمز عبور ایمیل
                 </JetButton>
             </div>
         </form>
