@@ -87,8 +87,8 @@ const submit = () => {
                     <div class="flex items-center">
                         <JetCheckbox id="terms" v-model:checked="form.terms" name="terms" />
 
-                        <div class="ml-2">
-                            I agree to the <a target="_blank" :href="route('terms.show')" class="underline text-sm text-gray-600 hover:text-gray-900">Terms of Service</a> and <a target="_blank" :href="route('policy.show')" class="underline text-sm text-gray-600 hover:text-gray-900">Privacy Policy</a>
+                        <div class="ltr:ml-2 rtl:mr-2">
+                            من با <a target="_blank" :href="route('terms.show')" class="underline text-sm text-gray-600 hover:text-gray-900">شرایط خدمات</a> و <a target="_blank" :href="route('policy.show')" class="underline text-sm text-gray-600 hover:text-gray-900">سیاست حفظ حریم خصوصی</a> موافقم
                         </div>
                     </div>
                 </JetLabel>
