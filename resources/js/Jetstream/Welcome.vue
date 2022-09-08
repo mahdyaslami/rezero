@@ -34,8 +34,8 @@ import IconArrowLeft from '@/Components/IconArrowLeft.vue';
 
                 <div class="ltr:ml-12 rtl:mr-12">
                     <div class="mt-2 text-sm text-gray-500">
-                        یک برنامه TODO ساده به همراه گروه بندی. این برنامه قابلیت
-                        نصب به عنوان PWA را دارد. داده های این برنامه در localStorage
+                        یک برنامه Todo ساده به همراه گروه بندی. این برنامه قابلیت
+                        نصب به عنوان PWA را دارد. داده های این برنامه در Local Storage
                         ذخیره می شوند و می تواند به صورت Offline هم به کار خود
                         ادامه دهد.
                     </div>
