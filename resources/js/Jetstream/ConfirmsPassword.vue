@@ -11,15 +11,15 @@ const emit = defineEmits(['confirmed']);
 defineProps({
     title: {
         type: String,
-        default: 'Confirm Password',
+        default: 'رمز عبور را تایید کنید',
     },
     content: {
         type: String,
-        default: 'For your security, please confirm your password to continue.',
+        default: 'برای امنیت خود، لطفا رمز عبور خود را برای ادامه تأیید کنید.',
     },
     button: {
         type: String,
-        default: 'Confirm',
+        default: 'تایید',
     },
 });
 
@@ -90,7 +90,7 @@ const closeModal = () => {
                         v-model="form.password"
                         type="password"
                         class="mt-1 block w-3/4"
-                        placeholder="Password"
+                        placeholder="رمزعبور"
                         @keyup.enter="confirmPassword"
                     />
 
@@ -100,11 +100,11 @@ const closeModal = () => {
 
             <template #footer>
                 <JetSecondaryButton @click="closeModal">
-                    Cancel
+                    لغو کنید
                 </JetSecondaryButton>
 
                 <JetButton
-                    class="ml-3"
+                    class="ltr:ml-3 rtl:mr-3"
                     :class="{ 'opacity-25': form.processing }"
                     :disabled="form.processing"
                     @click="confirmPassword"
