@@ -79,11 +79,11 @@ const clearPhotoFileInput = () => {
 <template>
     <JetFormSection @submitted="updateProfileInformation">
         <template #title>
-            Profile Information
+            اطلاعات کاربری
         </template>
 
         <template #description>
-            Update your account's profile information and email address.
+            بروزرسانی اطلاعات حسات کاربری و آدرس رایانامه
         </template>
 
         <template #form>
@@ -97,7 +97,7 @@ const clearPhotoFileInput = () => {
                     @change="updatePhotoPreview"
                 >
 
-                <JetLabel for="photo" value="Photo" />
+                <JetLabel for="photo" value="تصویر" />
 
                 <!-- Current Profile Photo -->
                 <div v-show="! photoPreview" class="mt-2">
@@ -112,8 +112,8 @@ const clearPhotoFileInput = () => {
                     />
                 </div>
 
-                <JetSecondaryButton class="mt-2 mr-2" type="button" @click.prevent="selectNewPhoto">
-                    Select A New Photo
+                <JetSecondaryButton class="mt-2 ltr:mr-2 rtl:ml-2" type="button" @click.prevent="selectNewPhoto">
+                    انتخاب تصویر
                 </JetSecondaryButton>
 
                 <JetSecondaryButton
@@ -122,7 +122,7 @@ const clearPhotoFileInput = () => {
                     class="mt-2"
                     @click.prevent="deletePhoto"
                 >
-                    Remove Photo
+                    حذف تصویر
                 </JetSecondaryButton>
 
                 <JetInputError :message="form.errors.photo" class="mt-2" />
@@ -130,7 +130,7 @@ const clearPhotoFileInput = () => {
 
             <!-- Name -->
             <div class="col-span-6 sm:col-span-4">
-                <JetLabel for="name" value="Name" />
+                <JetLabel for="name" value="نام نمایشی" />
                 <JetInput
                     id="name"
                     v-model="form.name"
@@ -143,7 +143,7 @@ const clearPhotoFileInput = () => {
 
             <!-- Email -->
             <div class="col-span-6 sm:col-span-4">
-                <JetLabel for="email" value="Email" />
+                <JetLabel for="email" value="رایانامه" />
                 <JetInput
                     id="email"
                     v-model="form.email"
@@ -154,7 +154,7 @@ const clearPhotoFileInput = () => {
 
                 <div v-if="$page.props.jetstream.hasEmailVerification && user.email_verified_at === null">
                     <p class="text-sm mt-2">
-                        Your email address is unverified.
+                        رایانامه شما تایید نشده است.
 
                         <Link
                             :href="route('verification.send')"
@@ -163,24 +163,24 @@ const clearPhotoFileInput = () => {
                             class="underline text-gray-600 hover:text-gray-900"
                             @click.prevent="sendEmailVerification"
                         >
-                            Click here to re-send the verification email.
+                            برای ارسال مجدد ایمیل تایید این دکمه را بزنید
                         </Link>
                     </p>
 
                     <div v-show="verificationLinkSent" class="mt-2 font-medium text-sm text-green-600">
-                        A new verification link has been sent to your email address.
+                        یک پیوند تأیید جدید به آدرس ایمیل شما ارسال شده است.
                     </div>
                 </div>
             </div>
         </template>
 
         <template #actions>
-            <JetActionMessage :on="form.recentlySuccessful" class="mr-3">
-                Saved.
+            <JetActionMessage :on="form.recentlySuccessful" class="ltr:mr-3 rtl:ml-3">
+                ذخیره شد
             </JetActionMessage>
 
             <JetButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                Save
+                ذخیره
             </JetButton>
         </template>
     </JetFormSection>
