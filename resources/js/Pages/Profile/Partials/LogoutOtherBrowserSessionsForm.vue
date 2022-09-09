@@ -45,16 +45,16 @@ const closeModal = () => {
 <template>
     <JetActionSection>
         <template #title>
-            Browser Sessions
+            جلسات مرورگر
         </template>
 
         <template #description>
-            Manage and log out your active sessions on other browsers and devices.
+            جلسات فعال خود را در سایر مرورگرها و دستگاه ها مدیریت کرده و از سیستم خارج شوید.
         </template>
 
         <template #content>
             <div class="max-w-xl text-sm text-gray-600">
-                If necessary, you may log out of all of your other browser sessions across all of your devices. Some of your recent sessions are listed below; however, this list may not be exhaustive. If you feel your account has been compromised, you should also update your password.
+                در صورت لزوم، می توانید از تمام جلسات مرورگر دیگر خود در همه دستگاه های خود خارج شوید. برخی از جلسات اخیر شما در زیر فهرست شده است. با این حال، این فهرست ممکن است جامع نباشد. اگر احساس می کنید حساب شما به خطر افتاده است، باید رمز عبور خود را نیز به روز کنید.
             </div>
 
             <!-- Other Browser Sessions -->
@@ -95,7 +95,7 @@ const closeModal = () => {
                         </svg>
                     </div>
 
-                    <div class="ml-3">
+                    <div class="ltr:ml-3 rtl:mr-3">
                         <div class="text-sm text-gray-600">
                             {{ session.agent.platform ? session.agent.platform : 'Unknown' }} - {{ session.agent.browser ? session.agent.browser : 'Unknown' }}
                         </div>
@@ -114,22 +114,23 @@ const closeModal = () => {
 
             <div class="flex items-center mt-5">
                 <JetButton @click="confirmLogout">
-                    Log Out Other Browser Sessions
+                    از سایر جلسات مرورگر خارج شوید
                 </JetButton>
 
-                <JetActionMessage :on="form.recentlySuccessful" class="ml-3">
-                    Done.
+                <JetActionMessage :on="form.recentlySuccessful" class="ltr:ml-3 rtl:mr-3">
+                    انجام شد
                 </JetActionMessage>
             </div>
 
             <!-- Log Out Other Devices Confirmation Modal -->
+            <!-- TODO: Use ConfirmsPassword modal here and contribute in Jetstream -->
             <JetDialogModal :show="confirmingLogout" @close="closeModal">
                 <template #title>
-                    Log Out Other Browser Sessions
+                    از سایر جلسات مرورگر خارج شوید
                 </template>
 
                 <template #content>
-                    Please enter your password to confirm you would like to log out of your other browser sessions across all of your devices.
+                    لطفاً رمز عبور خود را وارد کنید تا تأیید کنید که می خواهید از سایر جلسات مرورگر خود در همه دستگاه های خود خارج شوید.
 
                     <div class="mt-4">
                         <JetInput
@@ -147,19 +148,20 @@ const closeModal = () => {
 
                 <template #footer>
                     <JetSecondaryButton @click="closeModal">
-                        Cancel
+                        لغو کنید
                     </JetSecondaryButton>
 
                     <JetButton
-                        class="ml-3"
+                        class="ltr:ml-3 rtl:mr-3"
                         :class="{ 'opacity-25': form.processing }"
                         :disabled="form.processing"
                         @click="logoutOtherBrowserSessions"
                     >
-                        Log Out Other Browser Sessions
+                    از سایر جلسات مرورگر خارج شوید
                     </JetButton>
                 </template>
             </JetDialogModal>
+            
         </template>
     </JetActionSection>
 </template>
