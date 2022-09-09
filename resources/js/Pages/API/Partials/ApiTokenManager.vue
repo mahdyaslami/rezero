@@ -77,17 +77,17 @@ const deleteApiToken = () => {
         <!-- Generate API Token -->
         <JetFormSection @submitted="createApiToken">
             <template #title>
-                Create API Token
+                ایجاد توکن API
             </template>
 
             <template #description>
-                API tokens allow third-party services to authenticate with our application on your behalf.
+                توکن‌های API به سرویس‌های شخص ثالث اجازه می‌دهند تا با برنامه ما از طرف شما احراز هویت شوند.
             </template>
 
             <template #form>
                 <!-- Token Name -->
                 <div class="col-span-6 sm:col-span-4">
-                    <JetLabel for="name" value="Name" />
+                    <JetLabel for="name" value="نام توکن" />
                     <JetInput
                         id="name"
                         v-model="createApiTokenForm.name"
@@ -100,13 +100,13 @@ const deleteApiToken = () => {
 
                 <!-- Token Permissions -->
                 <div v-if="availablePermissions.length > 0" class="col-span-6">
-                    <JetLabel for="permissions" value="Permissions" />
+                    <JetLabel for="permissions" value="دسترسی ها" />
 
                     <div class="mt-2 grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div v-for="permission in availablePermissions" :key="permission">
                             <label class="flex items-center">
                                 <JetCheckbox v-model:checked="createApiTokenForm.permissions" :value="permission" />
-                                <span class="ml-2 text-sm text-gray-600">{{ permission }}</span>
+                                <span class="ltr:ml-2 rtl:mr-2 text-sm text-gray-600">{{ permission }}</span>
                             </label>
                         </div>
                     </div>
@@ -114,12 +114,12 @@ const deleteApiToken = () => {
             </template>
 
             <template #actions>
-                <JetActionMessage :on="createApiTokenForm.recentlySuccessful" class="mr-3">
-                    Created.
+                <JetActionMessage :on="createApiTokenForm.recentlySuccessful" class="ltr:mr-3 rtl:ml-3">
+                    ایجاد شد
                 </JetActionMessage>
 
                 <JetButton :class="{ 'opacity-25': createApiTokenForm.processing }" :disabled="createApiTokenForm.processing">
-                    Create
+                    ایجاد کردن
                 </JetButton>
             </template>
         </JetFormSection>
@@ -131,11 +131,11 @@ const deleteApiToken = () => {
             <div class="mt-10 sm:mt-0">
                 <JetActionSection>
                     <template #title>
-                        Manage API Tokens
+                        مدیریت توکن های API
                     </template>
 
                     <template #description>
-                        You may delete any of your existing tokens if they are no longer needed.
+                        شما می توانید هر یک از نشانه های موجود خود را در صورتی که دیگر مورد نیاز نیستند حذف کنید.
                     </template>
 
                     <!-- API Token List -->
@@ -153,14 +153,14 @@ const deleteApiToken = () => {
 
                                     <button
                                         v-if="availablePermissions.length > 0"
-                                        class="cursor-pointer ml-6 text-sm text-gray-400 underline"
+                                        class="cursor-pointer ltr:ml-6 rtl:mr-6 text-sm text-gray-400 underline"
                                         @click="manageApiTokenPermissions(token)"
                                     >
-                                        Permissions
+                                    مجوزها
                                     </button>
 
-                                    <button class="cursor-pointer ml-6 text-sm text-red-500" @click="confirmApiTokenDeletion(token)">
-                                        Delete
+                                    <button class="cursor-pointer ltr:ml-6 rtl:mr-6 text-sm text-red-500" @click="confirmApiTokenDeletion(token)">
+                                        حذف
                                     </button>
                                 </div>
                             </div>
@@ -173,12 +173,12 @@ const deleteApiToken = () => {
         <!-- Token Value Modal -->
         <JetDialogModal :show="displayingToken" @close="displayingToken = false">
             <template #title>
-                API Token
+                توکن API
             </template>
 
             <template #content>
                 <div>
-                    Please copy your new API token. For your security, it won't be shown again.
+                    لطفا کد API جدید خود را کپی کنید. برای امنیت شما، دیگر نشان داده نخواهد شد.
                 </div>
 
                 <div v-if="$page.props.jetstream.flash.token" class="mt-4 bg-gray-100 px-4 py-2 rounded font-mono text-sm text-gray-500">
@@ -188,7 +188,7 @@ const deleteApiToken = () => {
 
             <template #footer>
                 <JetSecondaryButton @click="displayingToken = false">
-                    Close
+                    بستن
                 </JetSecondaryButton>
             </template>
         </JetDialogModal>
@@ -196,7 +196,7 @@ const deleteApiToken = () => {
         <!-- API Token Permissions Modal -->
         <JetDialogModal :show="managingPermissionsFor != null" @close="managingPermissionsFor = null">
             <template #title>
-                API Token Permissions
+                مجوزهای توکن API
             </template>
 
             <template #content>
@@ -204,7 +204,7 @@ const deleteApiToken = () => {
                     <div v-for="permission in availablePermissions" :key="permission">
                         <label class="flex items-center">
                             <JetCheckbox v-model:checked="updateApiTokenForm.permissions" :value="permission" />
-                            <span class="ml-2 text-sm text-gray-600">{{ permission }}</span>
+                            <span class="ltr:ml-2 rtl:mr-2 text-sm text-gray-600">{{ permission }}</span>
                         </label>
                     </div>
                 </div>
@@ -212,16 +212,16 @@ const deleteApiToken = () => {
 
             <template #footer>
                 <JetSecondaryButton @click="managingPermissionsFor = null">
-                    Cancel
+                    لغو کنید
                 </JetSecondaryButton>
 
                 <JetButton
-                    class="ml-3"
+                    class="ltr:ml-3 rtl:mr-3"
                     :class="{ 'opacity-25': updateApiTokenForm.processing }"
                     :disabled="updateApiTokenForm.processing"
                     @click="updateApiToken"
                 >
-                    Save
+                    ذخیره
                 </JetButton>
             </template>
         </JetDialogModal>
@@ -229,25 +229,25 @@ const deleteApiToken = () => {
         <!-- Delete Token Confirmation Modal -->
         <JetConfirmationModal :show="apiTokenBeingDeleted != null" @close="apiTokenBeingDeleted = null">
             <template #title>
-                Delete API Token
+                رمز API را حذف کنید
             </template>
 
             <template #content>
-                Are you sure you would like to delete this API token?
+                آیا مطمئن هستید که می خواهید این نشانه API را حذف کنید؟
             </template>
 
             <template #footer>
                 <JetSecondaryButton @click="apiTokenBeingDeleted = null">
-                    Cancel
+                    لغو کنید
                 </JetSecondaryButton>
 
                 <JetDangerButton
-                    class="ml-3"
+                    class="ltr:ml-3 rtl:mr-3"
                     :class="{ 'opacity-25': deleteApiTokenForm.processing }"
                     :disabled="deleteApiTokenForm.processing"
                     @click="deleteApiToken"
                 >
-                    Delete
+                حذف
                 </JetDangerButton>
             </template>
         </JetConfirmationModal>
