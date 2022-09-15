@@ -15,10 +15,8 @@ use Inertia\Inertia;
 |
 */
 
-Route::domain(domain('account'))
-    ->get('/', fn () => redirect()->route('login'));
 
-Route::domain(domain())->get('/', function () {
+Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
