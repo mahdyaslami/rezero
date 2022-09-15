@@ -16,6 +16,9 @@ module.exports = {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
                 vazirmatn: ['Vazirmatn'],
             },
+            colors:{
+                quite: '#fefefe',
+            }
         },
     },
 
