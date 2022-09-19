@@ -14,7 +14,7 @@ module.exports = {
         extend: {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
-                vazirmatn: ['Vazirmatn'],
+                app: ['Vazirmatn', 'Nunito'],
             },
             colors:{
                 quite: '#fefefe',

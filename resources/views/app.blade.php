@@ -7,16 +7,16 @@
         <title inertia>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+        <link href="/fonts/montserrat/style.css" rel="stylesheet" type="text/css">
+        <link href="/fonts/vazirmatn/style.css" rel="stylesheet" type="text/css">
+        <link href="/fonts/google-font-icon/style.css" rel="stylesheet" type="text/css">
 
         <!-- Scripts -->
         @routes
         @vite('resources/js/app.js')
         @inertiaHead
     </head>
-    <body class="font-vazirmatn antialiased" dir="rtl">
+    <body class="font-app antialiased" dir="rtl">
         @inertia
     </body>
 </html>
