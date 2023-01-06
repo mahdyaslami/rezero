@@ -1,0 +1,26 @@
+name: deploy-liara
+on:
+  push:
+    branches: [liara]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      LIARA_TOKEN: ${{ secrets.LIARA_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: install
+        run: |
+          npm i -g @liara/cli
+
+      - name: deploy
+        run: |
+          liara deploy --app="rezero" --api-token="$LIARA_TOKEN" --detach
+
+      - name: migrate
+        run: |
+          liara shell --app="rezero" --api-token="$LIARA_TOKEN" -c "php artisan migrate --no-interaction"
