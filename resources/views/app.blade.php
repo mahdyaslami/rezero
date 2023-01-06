@@ -7,7 +7,7 @@
         <title inertia>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
-        <link href="/fonts/montserrat/style.css" rel="stylesheet" type="text/css">
+        <link href="/fonts/nunito/style.css" rel="stylesheet" type="text/css">
         <link href="/fonts/vazirmatn/style.css" rel="stylesheet" type="text/css">
         <link href="/fonts/google-font-icon/style.css" rel="stylesheet" type="text/css">
 
