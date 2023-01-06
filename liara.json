@@ -3,5 +3,11 @@
     "app": "rezero",
     "laravel": {
       "phpVersion": "8.1"
-    }
+    },
+    "disks": [
+      {
+        "name": "rezero-storage",
+        "mountTo": "storage"
+      }
+    ]
   }
