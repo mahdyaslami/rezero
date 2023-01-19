@@ -23,4 +23,4 @@ jobs:
 
       - name: migrate
         run: |
-          liara shell --app="rezero" --api-token="$LIARA_TOKEN" -c "php artisan migrate --no-interaction"
+          liara shell --app="rezero" --api-token="$LIARA_TOKEN" -c "php artisan migrate --force --no-interaction"
