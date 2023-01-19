@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NoteController;
+use App\Http\Controllers\OAuthController;
 use Illuminate\Support\Facades\Route;
+use Laravel\Socialite\Facades\Socialite;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,5 +28,11 @@ Route::middleware([
 });
 
 Route::middleware('auth')->group(function () {
+    Route::get('/oauth/github/redirect', [OAuthController::class, 'redirect'])
+    ->name('github.redirect');
+    
+    Route::get('/oauth/github/callback', [OAuthController::class, 'callback'])
+    ->name('github.callback');
+
     Route::resource('notes', NoteController::class)->except(['create', 'edit', 'show']);
 });

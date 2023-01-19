@@ -6,6 +6,7 @@ import LogoutOtherBrowserSessionsForm from '@/Pages/Profile/Partials/LogoutOther
 import TwoFactorAuthenticationForm from '@/Pages/Profile/Partials/TwoFactorAuthenticationForm.vue';
 import UpdatePasswordForm from '@/Pages/Profile/Partials/UpdatePasswordForm.vue';
 import UpdateProfileInformationForm from '@/Pages/Profile/Partials/UpdateProfileInformationForm.vue';
+import AuthenticateGithubApp from '@/Pages/Profile/Partials/AuthenticateGithubApp.vue';
 
 defineProps({
     confirmsTwoFactorAuthentication: Boolean,
@@ -51,6 +52,10 @@ defineProps({
 
                     <DeleteUserForm class="mt-10 sm:mt-0" />
                 </template>
+
+                <JetSectionBorder />
+
+                <AuthenticateGithubApp class="mt-10 sm:mt-0" />
             </div>
         </div>
     </AppLayout>
