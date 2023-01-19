@@ -17,5 +17,7 @@ class NoteController extends Controller
     public function store(NoteRequest $request)
     {
         auth()->user()->notes()->create($request->validated());
+
+        return redirect()->back();
     }
 }
