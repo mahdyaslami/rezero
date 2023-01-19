@@ -20,4 +20,14 @@ class Github extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function api()
+    {
+        $client = app('github.api');
+        $client->authenticate(
+            $this->token,
+            \Github\AuthMethod::ACCESS_TOKEN
+        );
+        return $client;
+    }
 }
