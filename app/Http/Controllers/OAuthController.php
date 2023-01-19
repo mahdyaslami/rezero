@@ -8,7 +8,8 @@ class OAuthController extends Controller
 {
     public function redirect()
     {
-        return Socialite::driver('github')->redirect();
+        return Socialite::driver('github')
+            ->scopes(['repo'])->redirect();
     }
 
     public function callback()
