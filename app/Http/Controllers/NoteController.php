@@ -9,7 +9,7 @@ class NoteController extends Controller
 {
     public function index()
     {
-        return Inertia::render('Note', [
+        return Inertia::render('Note/Show', [
             'notes' => auth()->user()->notes,
         ]);
     }
