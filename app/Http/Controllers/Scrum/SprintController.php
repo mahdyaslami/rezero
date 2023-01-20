@@ -11,13 +11,15 @@ class SprintController extends Controller
 {
     public function create()
     {
-        if (!auth()->user()->github) {
-            abort(403, 'ابتدا باید در به github خود دسترسی بدهید.');
+        $oauth = false;
+        $repos = [['id' => 0, 'name' => 'No Select']];
+
+        if (!!auth()->user()->github) {
+            $oauth = true;
+            $repos = $this->repos();
         }
 
-        $repos = $this->repos();
-
-        return Inertia::render('Scrum/Sprint/Create', compact('repos'));
+        return Inertia::render('Scrum/Sprint/Create', compact('oauth', 'repos'));
     }
 
     private function repos()
@@ -29,11 +31,11 @@ class SprintController extends Controller
         );
 
         $result = Cache::remember(
-            auth()->user()->github->username.':repos',
+            auth()->user()->github->username . ':repos',
             300,
             fn () => $client->api('me')->repositories()
         );
         $result = collect($result);
-        return $result->map(fn($r) =>  Arr::only($r, ['id', 'name']));
+        return $result->map(fn ($r) =>  Arr::only($r, ['id', 'name']));
     }
 }
