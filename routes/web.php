@@ -3,8 +3,8 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NoteController;
 use App\Http\Controllers\OAuthController;
+use App\Http\Controllers\Scrum\SprintController;
 use Illuminate\Support\Facades\Route;
-use Laravel\Socialite\Facades\Socialite;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,4 +35,6 @@ Route::middleware('auth')->group(function () {
     ->name('github.callback');
 
     Route::resource('notes', NoteController::class)->except(['create', 'edit', 'show']);
+
+    Route::resource('scrum/sprints', SprintController::class);
 });
