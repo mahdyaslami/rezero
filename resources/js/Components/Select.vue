@@ -5,7 +5,7 @@ import IconUnfold from '@/Components/IconUnfold.vue'
 
 const key = 'id'
 
-defineProps({
+const props = defineProps({
   value: {
     type: String,
     default: 'title'
@@ -19,19 +19,36 @@ defineProps({
     default: () => []
   },
   modelValue: {
-    type: Object,
-    required: true,
+    type: [Object, Array],
+  },
+  multiple: {
+    type: Boolean,
+    default: false
   }
 })
 
 defineEmits(['update:modelValue'])
 
+function current() {
+  if (props.multiple) {
+    return props.modelValue.length  
+      ? props.modelValue.map((item) => valueOf(item)).join(', ')
+      : '-'
+  } else {
+    return valueOf(props.modelValue)
+  }
+
+  function valueOf(o) {
+    return o[props.value]
+  }
+}
 </script>
 
 <template>
   <Listbox
     as="div"
     :model-value="modelValue"
+    :multiple="multiple"
     @update:model-value="$emit('update:modelValue', $event)"
   >
     <ListboxLabel v-show="label !== null" class="block text-sm font-medium text-gray-700">
@@ -43,7 +60,7 @@ defineEmits(['update:modelValue'])
             pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1
             focus:ring-gray-500 focus:border-gray-500 sm:text-sm"
       >
-        <span class="block truncate">{{ modelValue[value] }}</span>
+        <span class="block truncate">{{ current() }}</span>
         <span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
           <IconUnfold
             class="h-5 w-5"
@@ -78,7 +95,11 @@ defineEmits(['update:modelValue'])
                 'cursor-default select-none relative py-2 pl-8 pr-4'
               ]"
             >
-              <span :class="[selected ? 'font-semibold' : 'font-normal', 'block truncate']">
+              <span
+                dir="auto"
+                class="text-left"
+                :class="[selected ? 'font-semibold' : 'font-normal', 'block truncate']"
+              >
                 {{ item[value] }}
               </span>
 
