@@ -32,7 +32,13 @@ class SprintController extends Controller
 
     public function store()
     {
-        //
+        auth()->user()->sprints()->create([
+            'number' => auth()->user()->sprints()->count() + 1,
+            'start_date' => now(),
+            'finish_date' => now()->addWeek()
+        ]);
+
+        return redirect()->back();
     }
 
     private function repos()

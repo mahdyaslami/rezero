@@ -9,6 +9,8 @@ class Sprint extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['number', 'start_date', 'finish_date'];
+
     public function user()
     {
         return $this->belongsTo(User::class);
