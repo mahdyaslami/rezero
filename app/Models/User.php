@@ -68,4 +68,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Github::class);
     }
+
+    public function sprints()
+    {
+        return $this->hasMany(Sprint::class);
+    }
 }
