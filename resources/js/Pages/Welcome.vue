@@ -18,7 +18,7 @@ defineProps({
   >
     <div
       v-if="canLogin"
-      class="hidden fixed top-0 right-0 
+      class="fixed top-0 right-0 
             px-6 py-4 sm:block w-full text-end"
     >
       <a
@@ -44,7 +44,7 @@ defineProps({
       </template>
     </div>
 
-    <div>
+    <div class="flex justify-center items-center p-5">
       <img src="/logo-1.png" alt="logo">
     </div>
   </div>
