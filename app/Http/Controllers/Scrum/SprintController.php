@@ -9,6 +9,14 @@ use Inertia\Inertia;
 
 class SprintController extends Controller
 {
+    public function index()
+    {
+        return Inertia::render('Scrum/Sprint/Index', [
+            'sprints' => auth()->user()->sprints()
+                ->orderByDesc('number')->get()
+        ]);
+    }
+
     public function create()
     {
         $oauth = false;
