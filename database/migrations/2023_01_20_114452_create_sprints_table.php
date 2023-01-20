@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('sprints', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users');
-            $table->integer('number');
-            $table->date('start_date');
-            $table->date('finish_date');
+            $table->integer('number')->nullable();
+            $table->date('start_date')->nullable();
+            $table->date('finish_date')->nullable();
             $table->timestamps();
         });
     }

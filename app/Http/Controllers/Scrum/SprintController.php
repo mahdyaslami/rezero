@@ -30,6 +30,11 @@ class SprintController extends Controller
         return Inertia::render('Scrum/Sprint/Create', compact('oauth', 'repos'));
     }
 
+    public function store()
+    {
+        //
+    }
+
     private function repos()
     {
         $client = app('github.api');
