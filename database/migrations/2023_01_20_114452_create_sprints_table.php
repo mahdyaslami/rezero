@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users');
             $table->integer('number')->nullable();
+            $table->string('state')->default('draft');
             $table->date('start_date')->nullable();
             $table->date('finish_date')->nullable();
             $table->timestamps();
