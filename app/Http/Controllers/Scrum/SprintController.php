@@ -17,19 +17,6 @@ class SprintController extends Controller
         ]);
     }
 
-    public function create()
-    {
-        $oauth = false;
-        $repos = [['id' => 0, 'name' => 'No Select']];
-
-        if (!!auth()->user()->github) {
-            $oauth = true;
-            $repos = $this->repos();
-        }
-
-        return Inertia::render('Scrum/Sprint/Create', compact('oauth', 'repos'));
-    }
-
     public function store()
     {
         auth()->user()->sprints()->create([
@@ -39,6 +26,19 @@ class SprintController extends Controller
         ]);
 
         return redirect()->back();
+    }
+
+    public function edit()
+    {
+        $oauth = false;
+        $repos = [['id' => 0, 'name' => 'No Select']];
+
+        if (!!auth()->user()->github) {
+            $oauth = true;
+            $repos = $this->repos();
+        }
+
+        return Inertia::render('Scrum/Sprint/Edit', compact('oauth', 'repos'));
     }
 
     private function repos()
