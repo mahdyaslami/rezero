@@ -23,12 +23,12 @@ defineProps({
               class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full
                       bg-green-100 text-green-800"
             >
-              <!-- {{ position.type }} -->
+              {{ item.state.toUpperCase() }}
             </p>
           </div>
         </div>
-        <div class="mt-2 sm:flex sm:justify-between">
-          <div class="sm:flex">
+        <div class="mt-2 flex justify-between">
+          <div class="flex">
             <p class="flex items-center text-sm text-gray-500">
               <IconListBulleted class="flex-shrink-0 mr-1.5 h-5 w-5 fill-gray-400" aria-hidden="true" />
               <!-- {{ position.department }} -->
