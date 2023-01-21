@@ -1,5 +1,6 @@
 <script setup>
 import IconListBulleted from '@/Components/IconListBulleted.vue'
+import { Link as InertiaLink } from '@inertiajs/inertia-vue3'
 
 defineProps({
   item: {
@@ -12,7 +13,7 @@ defineProps({
 
 <template>
   <li>
-    <a href="#" class="block hover:bg-gray-50">
+    <InertiaLink :href="route('sprints.edit', [item.id])" class="block hover:bg-gray-50">
       <div class="px-4 py-4 sm:px-6">
         <div class="flex items-center justify-between">
           <p class="text-sm font-medium text-indigo-600 truncate">
@@ -45,6 +46,6 @@ defineProps({
           </div>
         </div>
       </div>
-    </a>
+    </InertiaLink>
   </li>
 </template>
