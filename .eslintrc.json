@@ -11,6 +11,9 @@
         "plugin:vue/vue3-strongly-recommended",
         "plugin:vue/vue3-recommended"
     ],
+    "globals": {
+        "route": "readonly"
+    },
     "overrides": [
     ],
     "parserOptions": {
