@@ -82,8 +82,8 @@
 import IconTrash from '@/Components/Icons/IconTrash.vue'
 import IconPencil from '@/Components/Icons/IconPencil.vue'
 import { reactive, watch } from 'vue'
-import BaseTd from './BaseTd.vue'
-import BaseTh from './BaseTh.vue'
+import BaseTd from './Td.vue'
+import BaseTh from './Th.vue'
   
 const props = defineProps({
   head: {
