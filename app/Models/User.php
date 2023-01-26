@@ -73,4 +73,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Sprint::class);
     }
+
+    public function repositories()
+    {
+        return $this->hasMany(Repository::class);
+    }
 }
