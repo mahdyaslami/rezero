@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NoteController;
 use App\Http\Controllers\OAuthController;
+use App\Http\Controllers\Scrum\RepositoryController;
 use App\Http\Controllers\Scrum\SprintController;
 use Illuminate\Support\Facades\Route;
 
@@ -37,4 +38,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('notes', NoteController::class)->except(['create', 'edit', 'show']);
 
     Route::resource('scrum/sprints', SprintController::class);
+    
+    Route::resource('scrum/repositories', RepositoryController::class)
+        ->only(['store', 'destroy']);
 });
