@@ -26,6 +26,6 @@ class OAuthController extends Controller
             ]
         );
 
-        return redirect()->route('dashboard');
+        return redirect()->route('sprints.index');
     }
 }
