@@ -30,15 +30,15 @@ Route::middleware([
 
 Route::middleware('auth')->group(function () {
     Route::get('/oauth/github/redirect', [OAuthController::class, 'redirect'])
-    ->name('github.redirect');
-    
+        ->name('github.redirect');
+
     Route::get('/oauth/github/callback', [OAuthController::class, 'callback'])
-    ->name('github.callback');
+        ->name('github.callback');
 
     Route::resource('notes', NoteController::class)->except(['create', 'edit', 'show']);
 
     Route::resource('scrum/sprints', SprintController::class);
-    
+
     Route::resource('scrum/repositories', RepositoryController::class)
         ->only(['store', 'destroy']);
 });
