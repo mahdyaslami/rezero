@@ -31,9 +31,7 @@ defineEmits(['update:modelValue'])
 
 function current() {
   if (props.multiple) {
-    return props.modelValue.length  
-      ? props.modelValue.map((item) => valueOf(item)).join(', ')
-      : '-'
+    return `${props.modelValue.length} Selection from ${props.list.length} Items`
   } else {
     return valueOf(props.modelValue)
   }
@@ -60,7 +58,7 @@ function current() {
             pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1
             focus:ring-gray-500 focus:border-gray-500 sm:text-sm"
       >
-        <span class="block truncate">{{ current() }}</span>
+        <span class="block truncate ltr">{{ current() }}</span>
         <span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
           <IconUnfold
             class="h-5 w-5"
