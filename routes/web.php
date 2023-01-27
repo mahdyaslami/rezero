@@ -29,6 +29,9 @@ Route::middleware([
 });
 
 Route::middleware('auth')->group(function () {
+    Route::get('/oauth/github', [OAuthController::class, 'index'])
+        ->name('github.index');
+
     Route::get('/oauth/github/redirect', [OAuthController::class, 'redirect'])
         ->name('github.redirect');
 

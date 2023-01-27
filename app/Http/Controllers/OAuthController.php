@@ -2,10 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use Inertia\Inertia;
 use Laravel\Socialite\Facades\Socialite;
 
 class OAuthController extends Controller
 {
+    public function index()
+    {
+        return Inertia::render('OAuth');
+    }
+
     public function redirect()
     {
         return Socialite::driver('github')
