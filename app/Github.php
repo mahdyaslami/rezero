@@ -2,15 +2,21 @@
 
 namespace App;
 
+use Github\Client;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Cache;
 
 class Github
 {
-    public static function repositories()
+    private Client $client;
+
+    public function __construct(Client $client) {
+        $this->client = $client;
+    }
+
+    public function repositories()
     {
-        $client = app('github.api');
-        $client->authenticate(
+        $this->client->authenticate(
             auth()->user()->github->token,
             \Github\AuthMethod::ACCESS_TOKEN
         );
@@ -18,7 +24,7 @@ class Github
         $result = Cache::remember(
             auth()->user()->github->username . ':repos',
             300,
-            fn () => $client->api('me')->repositories()
+            fn () => $this->client->api('me')->repositories()
         );
 
         $result = collect($result);
