@@ -26,7 +26,7 @@ const selected = ref([])
         <AppSelect
           v-model="selected"
           value="name"
-          class="w-60"
+          class="sm:w-60 px-2"
           :list="repos"
           multiple
         />
