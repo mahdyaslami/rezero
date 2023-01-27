@@ -16,7 +16,7 @@ const props = defineProps({
   }
 })
 
-const selected = ref(props.repos[0])
+const selected = ref([])
 </script>
 
 <template>
@@ -28,6 +28,7 @@ const selected = ref(props.repos[0])
           value="name"
           class="w-60"
           :list="repos"
+          multiple
         />
       </template>
 
