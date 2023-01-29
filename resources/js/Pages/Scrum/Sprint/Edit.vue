@@ -3,7 +3,7 @@
 import AppLayout from '@/Layouts/AppLayout.vue'
 import AppSelect from '@/Components/Select.vue'
 import { computed } from 'vue'
-import { Inertia } from '@inertiajs/inertia'
+import { router } from '@inertiajs/vue3'
 
 const props = defineProps({
   repos: {
@@ -25,11 +25,11 @@ const proxySelected = computed({
     const old = props.repos.filter((r) => props.selectedRepos.includes(r.id))
 
     if (fresh.length > old.length) {
-      Inertia.post(route('repositories.store'), minus(fresh, old).pop(),{
+      router.post(route('repositories.store'), minus(fresh, old).pop(),{
         preserveScroll: true,
       })
     } else {
-      Inertia.delete(route('repositories.destroy', [minus(old, fresh).pop().id]), {
+      router.delete(route('repositories.destroy', [minus(old, fresh).pop().id]), {
         preserveScroll: true,
       })
     }

@@ -1,5 +1,5 @@
 <script setup>
-import { useForm } from '@inertiajs/inertia-vue3'
+import { useForm } from '@inertiajs/vue3'
 import JetTextArea from '@/Jetstream/TextArea.vue'
 import JetInputError from '@/Jetstream/InputError.vue'
 import JetActionMessage from '@/Jetstream/ActionMessage.vue'
