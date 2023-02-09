@@ -11,12 +11,10 @@ class RepositoryTest extends TestCase
 {
     public function test_store_a_repository()
     {
-        $repo = Arr::except(
-            Repository::factory()->raw(),
-            ['user_id']
-        );
+        $user = User::factory()->create();
+        $repo = Repository::factory()->for($user)->raw();
 
-        $this->actingAs(User::factory()->create());
+        $this->actingAs($user);
 
         $this->post(route('repositories.store'), $repo)
             ->assertRedirect();
