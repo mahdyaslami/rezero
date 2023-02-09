@@ -98,7 +98,7 @@ const props = defineProps({
   
   keyColumn: {
     type: String,
-    required: true,
+    default: 'id',
   },
   
   selectable: {
@@ -109,7 +109,6 @@ const props = defineProps({
   
   multiSelect: {
     type: Boolean,
-    required: false,
     default: false,
   },
   
