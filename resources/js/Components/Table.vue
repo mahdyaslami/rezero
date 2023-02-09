@@ -22,9 +22,9 @@
           >
             <base-td v-show="selectable">
               <input
-                type="checkbox"
-                :checked="isChecked(row[keyColumn])"
-                @input="toggle(row[keyColumn])"
+                v-model="selected"
+                :value="row"
+                :type="multiple ? 'checkbox' : 'radio'"
               >
             </base-td>
             <base-td
@@ -81,7 +81,7 @@
 <script setup>
 import IconTrash from '@/Components/IconTrash.vue'
 import IconPencil from '@/Components/IconPencil.vue'
-import { reactive, watch } from 'vue'
+import { computed } from 'vue'
 import BaseTd from './Td.vue'
 import BaseTh from './Th.vue'
   
@@ -107,14 +107,14 @@ const props = defineProps({
     default: false,
   },
   
-  multiSelect: {
+  multiple: {
     type: Boolean,
     default: false,
   },
   
-  selected: {
-    type: Array,
-    default: () => [],
+  modelValue: {
+    type: [Array, Object],
+    default: null,
   },
   
   withRemove: {
@@ -130,18 +130,17 @@ const props = defineProps({
   },
 })
   
-const emit = defineEmits(['remove', 'edit', 'select'])
+const emit = defineEmits(['remove', 'edit', 'select', 'update:modelValue'])
   
-const state = reactive({
-  selectedKeys: [],
+const selected = computed({
+  get() { 
+    return props.multiple ? (props.modelValue ?? []) : props.modelValue
+  },
+  set(val) { 
+    emit('update:modelValue', val) 
+  }
 })
-  
-watch(
-  () => props.selected,
-  () => state.selectedKeys = props.selected.map((el) => el[props.keyColumn]),
-  { immediate: true }
-)
-  
+
 function fireRemove(key) {
   emit('remove', key)
 }
@@ -149,45 +148,9 @@ function fireRemove(key) {
 function fireEdit(key) {
   emit('edit', key)
 }
-  
-function isChecked(id) {
-  return state.selectedKeys.includes(id)
-}
-  
+
 function prepareValue(column, row) {
   const value = row[column.key]
   return column.callback ? column.callback(value) : value
-}
-  
-function toggle(id) {
-  if (props.multiSelect) {
-    toggleMultiple(id)
-    fireSelect(state.selectedKeys)
-  } else {
-    toggleSingle(id)
-    fireSelect(state.selectedKeys[0])
-  }
-}
-  
-function toggleMultiple(id) {
-  const index = state.selectedKeys.indexOf(id)
-  
-  if (index < 0) {
-    state.selectedKeys.push(id)
-  } else {
-    state.selectedKeys.splice(index, 1)
-  }
-}
-  
-function toggleSingle(id) {
-  if (state.selectedKeys[0] === id) {
-    state.selectedKeys = []
-  } else {
-    state.selectedKeys[0] = id
-  }
-}
-  
-function fireSelect(ev) {
-  emit('select', ev)
 }
 </script>
