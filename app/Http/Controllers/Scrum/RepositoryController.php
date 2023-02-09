@@ -11,8 +11,11 @@ class RepositoryController extends Controller
 {
     public function store(RepositoryRequest $request)
     {
-        auth()->user()->repositories()
-            ->create($request->validated());
+        $relation = auth()->user()->repositories();
+
+        $relation->delete();
+
+        $relation->createMany($request->repos);
 
         return back();
     }
