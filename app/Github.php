@@ -4,6 +4,7 @@ namespace App;
 
 use Github\Client;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
 
 class Github
@@ -14,7 +15,7 @@ class Github
         $this->client = $client;
     }
 
-    public function repositories()
+    public function repositories(): Collection
     {
         $this->client->authenticate(
             auth()->user()->github->token,
