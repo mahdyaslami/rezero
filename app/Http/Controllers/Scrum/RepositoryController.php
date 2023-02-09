@@ -19,13 +19,4 @@ class RepositoryController extends Controller
 
         return back();
     }
-
-    public function destroy(Repository $repository)
-    {
-        Gate::authorize('repository-delete', $repository);
-
-        $repository->delete();
-
-        return back();
-    }
 }

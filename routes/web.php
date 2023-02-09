@@ -43,5 +43,5 @@ Route::middleware('auth')->group(function () {
     Route::resource('scrum/sprints', SprintController::class);
 
     Route::resource('scrum/repositories', RepositoryController::class)
-        ->only(['store', 'destroy']);
+        ->only(['store']);
 });
