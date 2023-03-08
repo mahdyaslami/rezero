@@ -1,8 +1,8 @@
 
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue'
-import JetActionSection from '@/Jetstream/ActionSection.vue'
-import JetButton from '@/Jetstream/Button.vue'
+import JetActionSection from '@/Components/Jetstream/ActionSection.vue'
+import JetButton from '@/Components/Jetstream/Button.vue'
 
 const confirmInGithub = () => {
   document.location = route('github.redirect')

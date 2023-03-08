@@ -2,12 +2,12 @@
 import { ref } from 'vue'
 import { router } from '@inertiajs/vue3'
 import { Head, Link } from '@inertiajs/vue3'
-import JetApplicationMark from '@/Jetstream/ApplicationMark.vue'
-import JetBanner from '@/Jetstream/Banner.vue'
-import JetDropdown from '@/Jetstream/Dropdown.vue'
-import JetDropdownLink from '@/Jetstream/DropdownLink.vue'
-import JetNavLink from '@/Jetstream/NavLink.vue'
-import JetResponsiveNavLink from '@/Jetstream/ResponsiveNavLink.vue'
+import JetApplicationMark from '@/Components/Jetstream/ApplicationMark.vue'
+import JetBanner from '@/Components/Jetstream/Banner.vue'
+import JetDropdown from '@/Components/Jetstream/Dropdown.vue'
+import JetDropdownLink from '@/Components/Jetstream/DropdownLink.vue'
+import JetNavLink from '@/Components/Jetstream/NavLink.vue'
+import JetResponsiveNavLink from '@/Components/Jetstream/ResponsiveNavLink.vue'
 
 defineProps({
   title: String,

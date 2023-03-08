@@ -1,5 +1,5 @@
 <script setup>
-import JetApplicationLogo from '@/Jetstream/ApplicationLogo.vue'
+import JetApplicationLogo from '@/Components/Jetstream/ApplicationLogo.vue'
 import IconTote from '@/Components/IconTote.vue'
 import IconPassword from '@/Components/IconPassword.vue'
 import IconArrowLeft from '@/Components/IconArrowLeft.vue'
