@@ -24,7 +24,7 @@ class RepositoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'repos' => 'required|array',
+            'repos' => 'present|array',
             'repos.*.id' => 'required|integer',
             'repos.*.name' => 'required'
         ];
