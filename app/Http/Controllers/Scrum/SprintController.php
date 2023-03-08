@@ -29,10 +29,6 @@ class SprintController extends Controller
 
     public function edit()
     {
-        if (!auth()->user()->github) {
-            return redirect()->route('github.index');
-        }
-
         return Inertia::render('Scrum/Sprint/Edit', [
             'repos' => Github::repositories(),
             'selectedRepos' => auth()->user()->repositories()->pluck('id'),

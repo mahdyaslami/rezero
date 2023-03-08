@@ -40,8 +40,10 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('notes', NoteController::class)->except(['create', 'edit', 'show']);
 
-    Route::resource('scrum/sprints', SprintController::class);
+    Route::middleware('oauth.github')->group(function () {
+        Route::resource('/scrum/sprints', SprintController::class);
 
-    Route::resource('scrum/repositories', RepositoryController::class)
-        ->only(['index', 'store']);
+        Route::resource('/scrum/repositories', RepositoryController::class)
+            ->only(['index', 'store']);
+    });
 });
