@@ -1,9 +1,9 @@
 <script setup>
 import { useForm } from '@inertiajs/vue3'
-import JetTextArea from '@/Components/Jetstream/TextArea.vue'
-import JetInputError from '@/Components/Jetstream/InputError.vue'
+import JetTextArea from '@/Components/Base/TextArea.vue'
+import JetInputError from '@/Components/Base/InputError.vue'
 import JetActionMessage from '@/Components/Jetstream/ActionMessage.vue'
-import JetButton from '@/Components/Jetstream/Button.vue'
+import JetButton from '@/Components/Base/Button.vue'
 
 const props = defineProps({
   notes: {

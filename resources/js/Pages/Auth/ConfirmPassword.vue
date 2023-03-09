@@ -3,9 +3,9 @@ import { ref } from 'vue'
 import { Head, useForm } from '@inertiajs/vue3'
 import JetAuthenticationCard from '@/Components/Jetstream/AuthenticationCard.vue'
 import JetAuthenticationCardLogo from '@/Components/Jetstream/AuthenticationCardLogo.vue'
-import JetButton from '@/Components/Jetstream/Button.vue'
-import JetInput from '@/Components/Jetstream/Input.vue'
-import JetLabel from '@/Components/Jetstream/Label.vue'
+import JetButton from '@/Components/Base/Button.vue'
+import JetInput from '@/Components/Base/Input.vue'
+import JetLabel from '@/Components/Base/Label.vue'
 import JetValidationErrors from '@/Components/Jetstream/ValidationErrors.vue'
 
 const form = useForm({

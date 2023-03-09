@@ -1,7 +1,7 @@
 
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue'
-import AppTable from '@/Components/Table.vue'
+import AppTable from '@/Components/Base/Table.vue'
 import { computed } from 'vue'
 import { router } from '@inertiajs/core'
 

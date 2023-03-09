@@ -2,10 +2,10 @@
 import { Head, Link, useForm } from '@inertiajs/vue3'
 import JetAuthenticationCard from '@/Components/Jetstream/AuthenticationCard.vue'
 import JetAuthenticationCardLogo from '@/Components/Jetstream/AuthenticationCardLogo.vue'
-import JetButton from '@/Components/Jetstream/Button.vue'
-import JetInput from '@/Components/Jetstream/Input.vue'
-import JetCheckbox from '@/Components/Jetstream/Checkbox.vue'
-import JetLabel from '@/Components/Jetstream/Label.vue'
+import JetButton from '@/Components/Base/Button.vue'
+import JetInput from '@/Components/Base/Input.vue'
+import JetCheckbox from '@/Components/Base/Checkbox.vue'
+import JetLabel from '@/Components/Base/Label.vue'
 import JetValidationErrors from '@/Components/Jetstream/ValidationErrors.vue'
 
 defineProps({
