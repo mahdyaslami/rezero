@@ -1,9 +1,9 @@
 <script setup>
 import { ref } from 'vue'
 import { useForm } from '@inertiajs/vue3'
-import JetActionMessage from '@/Components/Jetstream/ActionMessage.vue'
+import JetActionMessage from '@/Components/ActionMessage.vue'
 import JetButton from '@/Components/Base/Button.vue'
-import JetFormSection from '@/Components/Jetstream/FormSection.vue'
+import JetFormSection from '@/Components/FormSection.vue'
 import JetInput from '@/Components/Base/Input.vue'
 import JetInputError from '@/Components/Base/InputError.vue'
 import JetLabel from '@/Components/Base/Label.vue'

@@ -1,9 +1,9 @@
 <script setup>
 import { ref, reactive, nextTick } from 'vue'
-import JetButton from '../Base/Button.vue'
+import JetButton from '@/Components/Base/Button.vue'
 import JetDialogModal from './DialogModal.vue'
-import JetInput from '../Base/Input.vue'
-import JetInputError from '../Base/InputError.vue'
+import JetInput from '@/Components/Base/Input.vue'
+import JetInputError from '@/Components/Base/InputError.vue'
 import JetSecondaryButton from './SecondaryButton.vue'
 
 const emit = defineEmits(['confirmed'])

@@ -1,12 +1,12 @@
 <script setup>
 import { ref } from 'vue'
 import { useForm } from '@inertiajs/vue3'
-import JetActionSection from '@/Components/Jetstream/ActionSection.vue'
-import JetDialogModal from '@/Components/Jetstream/DialogModal.vue'
-import JetDangerButton from '@/Components/Jetstream/DangerButton.vue'
+import JetActionSection from '@/Components/ActionSection.vue'
+import JetDialogModal from '@/Components/DialogModal.vue'
+import JetDangerButton from '@/Components/DangerButton.vue'
 import JetInput from '@/Components/Base/Input.vue'
 import JetInputError from '@/Components/Base/InputError.vue'
-import JetSecondaryButton from '@/Components/Jetstream/SecondaryButton.vue'
+import JetSecondaryButton from '@/Components/SecondaryButton.vue'
 
 const confirmingUserDeletion = ref(false)
 const passwordInput = ref(null)

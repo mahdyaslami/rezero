@@ -2,7 +2,7 @@
 import { useForm } from '@inertiajs/vue3'
 import JetTextArea from '@/Components/Base/TextArea.vue'
 import JetInputError from '@/Components/Base/InputError.vue'
-import JetActionMessage from '@/Components/Jetstream/ActionMessage.vue'
+import JetActionMessage from '@/Components/ActionMessage.vue'
 import JetButton from '@/Components/Base/Button.vue'
 
 const props = defineProps({

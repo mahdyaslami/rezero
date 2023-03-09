@@ -2,12 +2,12 @@
 import { ref } from 'vue'
 import { router, useForm } from '@inertiajs/vue3'
 import JetButton from '@/Components/Base/Button.vue'
-import JetFormSection from '@/Components/Jetstream/FormSection.vue'
+import JetFormSection from '@/Components/FormSection.vue'
 import JetInput from '@/Components/Base/Input.vue'
 import JetInputError from '@/Components/Base/InputError.vue'
 import JetLabel from '@/Components/Base/Label.vue'
-import JetActionMessage from '@/Components/Jetstream/ActionMessage.vue'
-import JetSecondaryButton from '@/Components/Jetstream/SecondaryButton.vue'
+import JetActionMessage from '@/Components/ActionMessage.vue'
+import JetSecondaryButton from '@/Components/SecondaryButton.vue'
 
 const props = defineProps({
   user: Object,

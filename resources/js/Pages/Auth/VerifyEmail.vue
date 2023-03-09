@@ -1,8 +1,8 @@
 <script setup>
 import { computed } from 'vue'
 import { Head, Link, useForm } from '@inertiajs/vue3'
-import JetAuthenticationCard from '@/Components/Jetstream/AuthenticationCard.vue'
-import JetAuthenticationCardLogo from '@/Components/Jetstream/AuthenticationCardLogo.vue'
+import JetAuthenticationCard from '@/Components/AuthenticationCard.vue'
+import JetAuthenticationCardLogo from '@/Components/AuthenticationCardLogo.vue'
 import JetButton from '@/Components/Base/Button.vue'
 
 const props = defineProps({

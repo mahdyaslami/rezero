@@ -1,7 +1,7 @@
 
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue'
-import JetActionSection from '@/Components/Jetstream/ActionSection.vue'
+import JetActionSection from '@/Components/ActionSection.vue'
 import JetButton from '@/Components/Base/Button.vue'
 
 const confirmInGithub = () => {

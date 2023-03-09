@@ -3,14 +3,14 @@ import { ref, computed, watch } from 'vue'
 import { router } from '@inertiajs/vue3'
 import { useForm } from '@inertiajs/vue3'
 import { usePage } from '@inertiajs/vue3'
-import JetActionSection from '@/Components/Jetstream/ActionSection.vue'
+import JetActionSection from '@/Components/ActionSection.vue'
 import JetButton from '@/Components/Base/Button.vue'
-import JetConfirmsPassword from '@/Components/Jetstream/ConfirmsPassword.vue'
-import JetDangerButton from '@/Components/Jetstream/DangerButton.vue'
+import JetConfirmsPassword from '@/Components/ConfirmsPassword.vue'
+import JetDangerButton from '@/Components/DangerButton.vue'
 import JetInput from '@/Components/Base/Input.vue'
 import JetInputError from '@/Components/Base/InputError.vue'
 import JetLabel from '@/Components/Base/Label.vue'
-import JetSecondaryButton from '@/Components/Jetstream/SecondaryButton.vue'
+import JetSecondaryButton from '@/Components/SecondaryButton.vue'
 
 const props = defineProps({
   requiresConfirmation: Boolean,

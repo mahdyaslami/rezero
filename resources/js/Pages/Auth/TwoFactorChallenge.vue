@@ -1,12 +1,12 @@
 <script setup>
 import { nextTick, ref } from 'vue'
 import { Head, useForm } from '@inertiajs/vue3'
-import JetAuthenticationCard from '@/Components/Jetstream/AuthenticationCard.vue'
-import JetAuthenticationCardLogo from '@/Components/Jetstream/AuthenticationCardLogo.vue'
+import JetAuthenticationCard from '@/Components/AuthenticationCard.vue'
+import JetAuthenticationCardLogo from '@/Components/AuthenticationCardLogo.vue'
 import JetButton from '@/Components/Base/Button.vue'
 import JetInput from '@/Components/Base/Input.vue'
 import JetLabel from '@/Components/Base/Label.vue'
-import JetValidationErrors from '@/Components/Jetstream/ValidationErrors.vue'
+import JetValidationErrors from '@/Components/ValidationErrors.vue'
 
 const recovery = ref(false)
 

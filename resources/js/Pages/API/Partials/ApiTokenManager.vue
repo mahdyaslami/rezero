@@ -1,19 +1,19 @@
 <script setup>
 import { ref } from 'vue'
 import { useForm } from '@inertiajs/vue3'
-import JetActionMessage from '@/Components/Jetstream/ActionMessage.vue'
-import JetActionSection from '@/Components/Jetstream/ActionSection.vue'
+import JetActionMessage from '@/Components/ActionMessage.vue'
+import JetActionSection from '@/Components/ActionSection.vue'
 import JetButton from '@/Components/Base/Button.vue'
-import JetConfirmationModal from '@/Components/Jetstream/ConfirmationModal.vue'
-import JetDangerButton from '@/Components/Jetstream/DangerButton.vue'
-import JetDialogModal from '@/Components/Jetstream/DialogModal.vue'
-import JetFormSection from '@/Components/Jetstream/FormSection.vue'
+import JetConfirmationModal from '@/Components/ConfirmationModal.vue'
+import JetDangerButton from '@/Components/DangerButton.vue'
+import JetDialogModal from '@/Components/DialogModal.vue'
+import JetFormSection from '@/Components/FormSection.vue'
 import JetInput from '@/Components/Base/Input.vue'
 import JetCheckbox from '@/Components/Base/Checkbox.vue'
 import JetInputError from '@/Components/Base/InputError.vue'
 import JetLabel from '@/Components/Base/Label.vue'
-import JetSecondaryButton from '@/Components/Jetstream/SecondaryButton.vue'
-import JetSectionBorder from '@/Components/Jetstream/SectionBorder.vue'
+import JetSecondaryButton from '@/Components/SecondaryButton.vue'
+import JetSectionBorder from '@/Components/SectionBorder.vue'
 
 const props = defineProps({
   tokens: Array,
