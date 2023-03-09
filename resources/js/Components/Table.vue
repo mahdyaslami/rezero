@@ -79,8 +79,8 @@
 </template>
   
 <script setup>
-import IconTrash from '@/Components/IconTrash.vue'
-import IconPencil from '@/Components/IconPencil.vue'
+import IconTrash from '@/Components/Icons/IconTrash.vue'
+import IconPencil from '@/Components/Icons/IconPencil.vue'
 import { computed } from 'vue'
 import BaseTd from './Td.vue'
 import BaseTh from './Th.vue'

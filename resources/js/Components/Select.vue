@@ -1,7 +1,7 @@
 <script setup>
 import { Listbox, ListboxButton, ListboxLabel, ListboxOption, ListboxOptions } from '@headlessui/vue'
-import IconCheck from '@/Components/IconCheck.vue'
-import IconUnfold from '@/Components/IconUnfold.vue'
+import IconCheck from '@/Components/Icons/IconCheck.vue'
+import IconUnfold from '@/Components/Icons/IconUnfold.vue'
 
 const key = 'id'
 

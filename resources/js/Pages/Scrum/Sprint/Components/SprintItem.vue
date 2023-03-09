@@ -1,5 +1,5 @@
 <script setup>
-import IconListBulleted from '@/Components/IconListBulleted.vue'
+import IconListBulleted from '@/Components/Icons/IconListBulleted.vue'
 import { Link as InertiaLink } from '@inertiajs/vue3'
 
 defineProps({

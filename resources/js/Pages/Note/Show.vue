@@ -1,7 +1,7 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue'
 import NoteForm from './Partials/Form.vue'
-import IconTrash from '@/Components/IconTrash.vue'
+import IconTrash from '@/Components/Icons/IconTrash.vue'
 
 const props = defineProps({
   notes: {
