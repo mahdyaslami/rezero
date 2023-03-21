@@ -18,6 +18,7 @@ class RepositoryFactory extends Factory
     public function definition()
     {
         return [
+            'id' => fake()->unique()->randomNumber(),
             'user_id' => User::factory(),
             'name' => fake()->slug(3),
         ];

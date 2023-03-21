@@ -2,26 +2,28 @@
 
 namespace App\Http\Controllers\Scrum;
 
+use App\Facades\Github;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RepositoryRequest;
-use App\Models\Repository;
-use Illuminate\Support\Facades\Gate;
+use Inertia\Inertia;
 
 class RepositoryController extends Controller
 {
-    public function store(RepositoryRequest $request)
+    public function index()
     {
-        auth()->user()->repositories()
-            ->create($request->validated());
-
-        return back();
+        return Inertia::render('Scrum/Repository/Index', [
+            'repos' => Github::repositories(),
+            'selected' => auth()->user()->repositories()->pluck('id'),
+        ]);
     }
 
-    public function destroy(Repository $repository)
+    public function store(RepositoryRequest $request)
     {
-        Gate::authorize('repository-delete', $repository);
+        $relation = auth()->user()->repositories();
 
-        $repository->delete();
+        $relation->delete();
+
+        $relation->createMany($request->repos);
 
         return back();
     }

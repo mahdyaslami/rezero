@@ -29,16 +29,21 @@ Route::middleware([
 });
 
 Route::middleware('auth')->group(function () {
+    Route::get('/oauth/github', [OAuthController::class, 'index'])
+        ->name('github.index');
+
     Route::get('/oauth/github/redirect', [OAuthController::class, 'redirect'])
-    ->name('github.redirect');
-    
+        ->name('github.redirect');
+
     Route::get('/oauth/github/callback', [OAuthController::class, 'callback'])
-    ->name('github.callback');
+        ->name('github.callback');
 
     Route::resource('notes', NoteController::class)->except(['create', 'edit', 'show']);
 
-    Route::resource('scrum/sprints', SprintController::class);
-    
-    Route::resource('scrum/repositories', RepositoryController::class)
-        ->only(['store', 'destroy']);
+    Route::middleware('oauth.github')->group(function () {
+        Route::resource('/scrum/sprints', SprintController::class);
+
+        Route::resource('/scrum/repositories', RepositoryController::class)
+            ->only(['index', 'store']);
+    });
 });

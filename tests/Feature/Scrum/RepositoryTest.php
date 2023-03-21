@@ -2,51 +2,49 @@
 
 namespace Tests\Feature\Scrum;
 
+use App\Facades\Github;
 use App\Models\Repository;
 use App\Models\User;
-use Illuminate\Support\Arr;
 use Tests\TestCase;
 
 class RepositoryTest extends TestCase
 {
-    public function test_store_a_repository()
+    public function test_show_repositories()
     {
-        $repo = Arr::except(
-            Repository::factory()->raw(),
-            ['user_id']
-        );
-
         $this->actingAs(User::factory()->create());
 
-        $this->post(route('repositories.store'), $repo)
+        Github::partialMock()->shouldReceive('repositories')
+            ->andReturn(collect([]));
+
+        $this->get(route('repositories.index'))
+            ->assertOk()
+            ->assertViewHas('page.component', 'Scrum/Repository/Index');
+    }
+
+    public function test_store_a_repository()
+    {
+        $user = User::factory()->create();
+        $repo = Repository::factory()->raw();
+
+        $this->actingAs($user);
+
+        $this->post(route('repositories.store'), ['repos' => [$repo]])
             ->assertRedirect();
 
+        $repo['user_id'] = $user->id;
         $this->assertDatabaseHas('repositories', $repo);
     }
 
-    public function test_destroy_a_repository()
+    public function test_destroy_repository()
     {
         $user = User::factory()->create();
         $repo = Repository::factory()->for($user)->create();
 
         $this->actingAs($user);
 
-        $this->delete(route('repositories.destroy', [$repo->id]))
+        $this->post(route('repositories.store'), ['repos' => []])
             ->assertRedirect();
 
         $this->assertModelMissing($repo);
-    }
-
-    public function test_cannot_destroy_other_repository()
-    {
-        $user = User::factory()->create();
-        $repo = Repository::factory()->for($user)->create();
-
-        $this->actingAs(User::factory()->create());
-
-        $this->delete(route('repositories.destroy', [$repo->id]))
-            ->assertForbidden();
-
-        $this->assertModelExists($repo);
     }
 }

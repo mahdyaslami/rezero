@@ -2,9 +2,9 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue'
 
-import JetButton from '@/Jetstream/Button.vue'
+import JetButton from '@/Components/Base/Button.vue'
 import SprintItem from './Components/SprintItem.vue'
-import { useForm } from '@inertiajs/inertia-vue3'
+import { useForm } from '@inertiajs/vue3'
 
 defineProps({
   sprints: {
