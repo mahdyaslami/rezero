@@ -9,6 +9,7 @@ import JetDropdownLink from '@/Components/DropdownLink.vue'
 import JetNavLink from '@/Components/NavLink.vue'
 import JetResponsiveNavLink from '@/Components/ResponsiveNavLink.vue'
 import AppNavMenu from '@/Components/NavMenu.vue'
+import AppResponsiveNavMenu from '@/Components/ResponsiveNavMenu.vue'
 import IconSprint from '@/Components/Icons/IconSprint.vue'
 import IconWidgets from '@/Components/Icons/IconWidgets.vue'
 
@@ -286,14 +287,23 @@ const navbar = [
         <!-- Responsive Navigation Menu -->
         <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
           <div class="pt-2 pb-3 space-y-1">
-            <JetResponsiveNavLink
+            <template
               v-for="(item, i) in navbar"
               :key="i"
-              :href="route(item.route)"
-              :active="route().current(item.route)"
             >
-              {{ item.title }}
-            </JetResponsiveNavLink>
+              <AppResponsiveNavMenu
+                v-if="item.children"
+                title="اسکرام"
+                :items="item.children"
+              />
+              <JetResponsiveNavLink
+                v-else
+                :href="route(item.route)"
+                :active="route().current(item.route)"
+              >
+                {{ item.title }}
+              </JetResponsiveNavLink>
+            </template>
           </div>
 
           <!-- Responsive Settings Options -->
