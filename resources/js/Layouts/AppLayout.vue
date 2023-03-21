@@ -8,6 +8,9 @@ import JetDropdown from '@/Components/Dropdown.vue'
 import JetDropdownLink from '@/Components/DropdownLink.vue'
 import JetNavLink from '@/Components/NavLink.vue'
 import JetResponsiveNavLink from '@/Components/ResponsiveNavLink.vue'
+import AppNavMenu from '@/Components/NavMenu.vue'
+import IconSprint from '@/Components/Icons/IconSprint.vue'
+import IconWidgets from '@/Components/Icons/IconWidgets.vue'
 
 defineProps({
   title: String,
@@ -31,6 +34,24 @@ const navbar = [
   {
     title: 'میزکار شما',
     route: 'dashboard'
+  },
+  {
+    title: 'اسکرام',
+    children: [
+      {
+        name: 'کار دوره',
+        description: 'لیست همه کار دوره هایی که وجود دارد چه جاری و چه تمام شده',
+        href: route('sprints.index'),
+        icon: IconSprint
+      },
+      {
+        name: 'Repository',
+        description: 'در این بخش می توانید لیست همه Repository های Github خود را ببینید و آنهایی که میخواهید \
+        استفاده کنید را انتخاب کنید',
+        href: route('repositories.index'),
+        icon: IconWidgets
+      },
+    ]
   }
 ]
 </script>
@@ -55,10 +76,19 @@ const navbar = [
               </div>
 
               <!-- Navigation Links -->
-              <div class="hidden space-x-8 sm:-my-px ltr:sm:ml-10 rtl:sm:mr-10 sm:flex">
+              <div
+                v-for="(item, i) in navbar"
+                :key="i"
+                class="hidden space-x-8 sm:-my-px ltr:sm:ml-10 rtl:sm:mr-10 sm:flex"
+              >
+                <AppNavMenu
+                  v-if="item.children"
+                  :title="item.title"
+                  :items="item.children"
+                  class="relative flex justify-center items-center"
+                />
                 <JetNavLink
-                  v-for="(item, i) in navbar"
-                  :key="i"
+                  v-else
                   :href="route(item.route)"
                   :active="route().current(item.route)"
                 >
