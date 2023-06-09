@@ -30,8 +30,7 @@ class SprintController extends Controller
     public function edit()
     {
         return Inertia::render('Scrum/Sprint/Edit', [
-            'repos' => Github::repositories(),
-            'selectedRepos' => auth()->user()->repositories()->pluck('id'),
+            'issues' => Github::issues('kitchen'),
         ]);
     }
 }

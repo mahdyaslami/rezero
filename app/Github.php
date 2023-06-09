@@ -32,4 +32,26 @@ class Github
 
         return $result->map(fn ($r) =>  Arr::only($r, ['id', 'name']));
     }
+
+    public function issues(string $repo)
+    {
+        $this->client->authenticate(
+            auth()->user()->github->token,
+            \Github\AuthMethod::ACCESS_TOKEN
+        );
+
+        $result = Cache::remember(
+            auth()->user()->github->username . ':' . $repo . ':issues',
+            300,
+            fn () => $this->client->api('issues')->all(
+                auth()->user()->github->username,
+                $repo,
+                array('state' => 'open')
+            )
+        );
+
+        $result = collect($result);
+
+        return $result;
+    }
 }
