@@ -18,6 +18,7 @@ class IssueFactory extends Factory
     public function definition()
     {
         return [
+            'id' => fake()->unique()->randomNumber(),
             'sprint_id' => Sprint::factory(),
             'title' => fake()->sentence(),
             'html_url' => fake()->url(),

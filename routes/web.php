@@ -42,6 +42,8 @@ Route::middleware('auth')->group(function () {
 
     Route::middleware('oauth.github')->group(function () {
         Route::resource('/scrum/sprints', SprintController::class);
+        Route::post('/scrum/sprints/{sprint}/issues', [SprintController::class, 'issues'])
+            ->name('sprints.issues.store');
 
         Route::resource('/scrum/repositories', RepositoryController::class)
             ->only(['index', 'store']);
