@@ -15,4 +15,9 @@ class Sprint extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function issues()
+    {
+        return $this->hasMany(Issue::class);
+    }
 }
