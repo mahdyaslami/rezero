@@ -38,4 +38,18 @@ class SprintTest extends TestCase
         $issue['sprint_id'] = $sprint->id;
         $this->assertDatabaseHas('issues', $issue);
     }
+
+    public function test_destroy_repository()
+    {
+        $user = User::factory()->has(\App\Models\Github::factory())->create();
+        $sprint = Sprint::factory()->for($user)->create();
+        $issue = Issue::factory()->for($sprint)->create();
+
+        $this->actingAs($user);
+
+        $this->post(route('sprints.issues.store', $sprint->id), ['issues' => []])
+            ->assertRedirect();
+
+        $this->assertModelMissing($issue);
+    }
 }
