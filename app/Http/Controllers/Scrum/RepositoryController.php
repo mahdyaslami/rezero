@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Scrum;
 
 use Facades\App\Github;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\RepositoryRequest;
+use App\Http\Requests\Scrum\RepositoryRequest;
 use Inertia\Inertia;
 
 class RepositoryController extends Controller
