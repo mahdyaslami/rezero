@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Scrum;
 
-use App\Facades\Github;
+use Facades\App\Github;
 use App\Http\Controllers\Controller;
 use Inertia\Inertia;
 

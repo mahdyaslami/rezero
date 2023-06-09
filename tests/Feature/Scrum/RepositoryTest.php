@@ -2,7 +2,7 @@
 
 namespace Tests\Feature\Scrum;
 
-use App\Facades\Github;
+use Facades\App\Github;
 use App\Models\Repository;
 use App\Models\User;
 use Tests\TestCase;
