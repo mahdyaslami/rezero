@@ -14,5 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return "Rezero Applications Federation";
+    return 'Rezero Applications Federation';
 });
+
+Route::get('/passwords/{path?}', function () {
+    return view('passwords');
+})->where('path', '.*');
