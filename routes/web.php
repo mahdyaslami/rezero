@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DictionaryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,7 @@ Route::get('/', function () {
     return 'Rezero Applications Federation';
 });
 
-Route::get('/passwords/{path?}', function () {
-    return view('passwords');
-})->where('path', '.*');
+Route::get('/passwords/{path?}', fn () => view('passwords'))
+    ->where('path', '.*');
+
+Route::post('/dictionaries', [DictionaryController::class, 'store']);
