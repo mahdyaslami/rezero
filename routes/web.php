@@ -22,3 +22,4 @@ Route::get('/passwords/{path?}', fn () => view('passwords'))
     ->where('path', '.*');
 
 Route::post('/dictionaries', [DictionaryController::class, 'store']);
+Route::delete('/dictionaries', [DictionaryController::class, 'destroy']);

@@ -15,7 +15,7 @@ class DictionaryRequest extends FormRequest
     {
         return [
             'key' => 'required|string',
-            'value' => 'required|string',
+            'value' => $this->isMethod('POST') ? 'required|string' : 'exclude',
         ];
     }
 }

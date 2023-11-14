@@ -12,7 +12,12 @@ class DictionaryController extends Controller
     {
         Dictionary::updateOrCreate(
             ['key' => $request->get('key')],
-            ['value'=> $request->get('value')]
+            ['value' => $request->get('value')]
         );
+    }
+
+    public function destroy(DictionaryRequest $request)
+    {
+        Dictionary::where('key', $request->get('key'))->delete();
     }
 }

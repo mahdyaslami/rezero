@@ -4,7 +4,6 @@ namespace Tests\Feature;
 
 use App\Models\Dictionary;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class DictionaryTest extends TestCase
@@ -29,7 +28,16 @@ class DictionaryTest extends TestCase
 
         $this->postJson('/dictionaries', $newRecord)->assertOk();
 
-        $this->assertDatabaseCount('dictionaries',1);
+        $this->assertDatabaseCount('dictionaries', 1);
         $this->assertDatabaseHas('dictionaries', $newRecord);
+    }
+
+    public function test_delete_a_dictionary()
+    {
+        $record = Dictionary::factory()->create();
+
+        $this->deleteJson('/dictionaries', ['key' => $record->key])->assertOk();
+
+        $this->assertDatabaseCount('dictionaries', 0);
     }
 }
