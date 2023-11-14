@@ -19,4 +19,17 @@ class DictionaryTest extends TestCase
 
         $this->assertDatabaseHas('dictionaries', $record);
     }
+
+    public function test_update_a_dictionary()
+    {
+        $record = Dictionary::factory()->create();
+        $newRecord = Dictionary::factory()->raw([
+            'key' => $record->key,
+        ]);
+
+        $this->postJson('/dictionaries', $newRecord)->assertOk();
+
+        $this->assertDatabaseCount('dictionaries',1);
+        $this->assertDatabaseHas('dictionaries', $newRecord);
+    }
 }

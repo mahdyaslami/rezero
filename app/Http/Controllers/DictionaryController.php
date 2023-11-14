@@ -9,6 +9,9 @@ class DictionaryController extends Controller
 {
     public function store()
     {
-        Dictionary::create(request()->all());
+        Dictionary::updateOrCreate(
+            ['key' => request()->get('key')],
+            ['value'=> request()->get('value')]
+        );
     }
 }
