@@ -3,12 +3,20 @@
 namespace Tests\Feature;
 
 use App\Models\Dictionary;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class DictionaryTest extends TestCase
 {
     use RefreshDatabase;
+
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        $this->actingAs(User::factory()->create());
+    }
 
     public function test_store_a_dictionary()
     {

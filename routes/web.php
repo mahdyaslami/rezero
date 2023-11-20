@@ -20,12 +20,14 @@ Route::get('/', function () {
 });
 
 Route::middleware('guest')->group(function () {
-    Route::get('/auth/login', [AuthController::class, 'show']);
+    Route::get('/auth/login', [AuthController::class, 'show'])->name('login');
     Route::post('/auth/login', [AuthController::class, 'login']);
 });
 
-Route::get('/passwords/{path?}', fn () => view('passwords'))
-    ->where('path', '.*');
+Route::middleware('auth')->group(function () {
+    Route::get('/passwords/{path?}', fn () => view('passwords'))
+        ->where('path', '.*');
 
-Route::post('/dictionaries', [DictionaryController::class, 'store']);
-Route::delete('/dictionaries', [DictionaryController::class, 'destroy']);
+    Route::post('/dictionaries', [DictionaryController::class, 'store']);
+    Route::delete('/dictionaries', [DictionaryController::class, 'destroy']);
+});
